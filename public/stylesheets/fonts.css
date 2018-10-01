@@ -1,0 +1,211 @@
+
+
+h1 {
+    font-family: "casloncpbold";
+    font-size: 75pt;
+    margin-top:0px;
+    margin-left:40px;
+
+}
+
+h2 {
+    font-family: "casloncpbold";
+    font-size: 32pt;
+    margin-top:45px;
+    margin-left:70px;
+    margin-bottom:25px;
+
+
+
+
+}
+
+h3 {
+    font-family: "caslongraphiqueefregular";
+    font-size: 60pt;
+}
+h4 {
+    font-family: "caslongraphiqueefregular";
+    font-size: 15pt;
+
+}
+
+h5 {
+    font-family: "caslongraphiqueefregular";
+    font-size: 25pt;
+
+}
+
+h6 {
+    font-family: "caslongraphiqueefregular";
+    font-size: 60pt;
+    margin-left: 35px;
+
+}
+
+p {
+    font-family: "caslongraphiqueefregular";
+    font-size: 17pt;
+}
+
+ul {
+    font-family: "casloncpbold";
+    font-size: 22pt;
+    margin-left: 125px;
+
+}
+
+div .card-body {
+  margin-bottom: 35px;
+}
+
+a {
+	font-family: "caslongraphiqueefregular";
+	color: black;
+
+}
+
+h1 .card-title {
+    font-family: "caslongraphiqueefregular";
+    font-size: 30pt;
+
+
+}
+
+h3 .card-title .info {
+    margin-left: 60px;
+
+
+}
+
+/*div .row .alephbet .top-buffer .rtl {
+  margin-left: auto
+}*/
+h5 .rtl {
+    direction: rtl;
+}
+
+li {
+  font-size: 30pt
+}
+
+span {
+  font-size: 20pt;
+}
+
+div .col-sm-auto .menu {
+        margin-top:10px;
+}
+
+/*div .container .final-forms {
+    margin-bottom:20px;
+}*/
+
+div .card-body {
+    margin-right:0px;
+}
+
+div.col-8 {
+  margin-top: 30px;
+  border-radius: 0;
+}
+
+.input-group {
+    background-color: grey;
+    border-radius: 0;
+}
+
+div .top-buffer { margin-top:20px; }
+
+div .right-buffer { margin-right:20px; }
+div .left-buffer { margin-right:20px; }
+
+div .bottom-buffer { margin-bottom:20px; }
+
+div .small-right-buffer { margin-right:10px; }
+
+/*div .small-left-buffer { margin-left:5px; }*/
+
+
+
+
+div .left-buffer { margin-left:669px; }
+
+
+div .card-body{
+  width:100%;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+
+/*div[class="row"] {
+    outline: 1px solid rgba(0, 0, 0, 1);
+}
+div[class="row"] {
+    outline: 1px solid rgba(0, 0, 0, 1);
+}*/
+
+/*div[class="col-sm-auto"] {
+    outline: 1px solid rgba(0, 0, 0, 1);
+}*/
+
+.home:hover {
+	font-family: "caslongraphiqueefregular";
+	color: black;
+	text-decoration: none;
+}
+
+/*div .card:hover {
+  color: blue;
+}
+
+navbar-link {
+	font-family: "caslongraphiqueefregular";
+
+}
+
+@font-face {
+    font-family: 'caslongraphiqueefregular';
+    src: url('../hebrew/caslongraphiqueef-webfont.woff2') format('woff2'),
+         url('../hebrew/caslongraphiqueef-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'casloncpbold';
+    src: url('../hebrew/casloncp-webfont.woff2') format('woff2'),
+         url('.,/hebrew/casloncp-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/** { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}*/
+
+/*input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}*/
+input[type=text] {
+  /*background-color: #f1f1f1;*/
+  /*width: 100%;*/
+  border-radius: 0;
+}
+/*input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}*/

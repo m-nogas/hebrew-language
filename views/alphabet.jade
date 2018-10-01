@@ -1,0 +1,181 @@
+extends layout
+
+block content
+  body
+    div().container-fluid
+      div().row
+        div.col-sm-auto
+          a(href="/").home
+            h1 Hebrew.
+        div.col-sm-auto
+          div.row.menu
+            a(href="/alphabet")
+              h4 Alphabet.
+          div.row
+            a(href="/dictionary")
+              h4 Dictionary
+          div.row
+            a(href="/lessons")
+              h4 Lessons
+
+      //- ['א', 'ב', 'ג', 'ד', 'ה', 'ו(ן)', 'ז', 'ח', 'ט', 'י', 'כ(ך)', 'ל', 'מ(ם)', 'נ', 'ס', 'ע', 'פ(ף)', 'צ(ץ)', 'ק', 'ר', 'ש', 'ת']
+      //- ['ת', 'ש', 'ר', 'ק', 'צ(ץ)', 'פ(ף)', 'ע', 'ס', 'נ', 'מ(ם)', 'ל', 'כ(ך)', 'י', 'ט', 'ח', 'ז', 'ו(ן)', 'ה', 'ד', 'ג', 'ב', 'א']
+    - var letters = [{'א':{'name':'Aleph', 'info':["Alone א doesn't make a sound - it can be considered a 'dummy letter' used to insert consonant sounds in a word by adding Niqqud to it.", "Often א is used to spell a word but makes no sound. For example, א appears at the beginning of words that start with an [oh] sound (like בהוא), and at the end of "]}, 'ב':{'name':'Bet', 'info':[]}, 'ג':{'name':'Gimmel', 'info':[]}, 'ד':{'name':'Daled', 'info':[]}, 'ה':{'name':'Hey', 'info':[]}}, {'ו':{'name':'Vav', 'info':[]}, 'ז':{'name':'Zayin', 'info':[]}, 'ח':{'name':'Chet', 'info':[]}, 'ט':{'name':'Tet', 'info':[]}, 'י':{'name':'Yud', 'info':[]}}, {'כ':{'name':'Kaf', 'final_form':'ך', 'info':[]}, 'ל':{'name':'Lamed', 'info':[]}, 'מ':{'name':'Mem', 'final_form':'ם', 'info':[]}, 'נ':{'name':'Nun', 'final_form':'ן', 'info':[]}, 'ס':{'name':'Samekh', 'final_form':'', 'info':[]}}, {'ע':{'name':'Ayin', 'final_form':'', 'info':[]}, 'פ':{'name':'Pey', 'final_form':'ף', 'info':[]}, 'צ':{'name':'Tzadi', 'final_form':'ץ', 'info':[]}, 'ק':{'name':'Kuf', 'final_form':'', 'info':[]},'ר':{'name':'Resh', 'final_form':'', 'info':[]}}, {'ש':{'name':'Shin', 'final_form':'', 'info':[]}, 'ת':{'name':'Tav', 'final_form':'', 'info':[]}}]
+
+    div().container
+      div(dir="rtl").row.alephbet.top-buffer.small-right-buffer
+        each row in letters
+          each letter_info, letter in row
+            a(align='right', href='#collapse' + '#{letter_info.name}', data-toggle="collapse", data-parent="#accordion1").accordion-toggle.collapsed
+              h5(align='right').small-right-buffer.small-left-buffer= letter 
+            if letter_info.final_form
+              a(align='right', href='#collapseFinalForm' + '#{letter_info.name}', data-toggle="collapse", data-parent="#accordion2").accordion-toggle.collapsed
+                h5(align='right').small-right-buffer.small-left-buffer= '(' + letter_info.final_form + ')'
+
+    div().container
+      #accordion1
+        - var index = 1
+        each row in letters
+          div(dir="rtl").row.no-gutter.alephbet
+            each letter_info, letter in row
+              div().col-sm-auto.right-buffer.top-buffer
+                div(style='width:13rem', data-toggle='collapse', data-target='#collapse' + '#{letter_info.name}', aria-expanded='true', aria-controls='collapse'+ '#{letter_info.name}').card.text-center
+                  div(id='heading' + '#{letter_info.name}').card-body
+                    h3.card-title= letter
+                    p.card-text (#{letter_info.name})
+
+          each letter_info, letter in row
+            .collapse(id='collapse' + '#{letter_info.name}', aria-labelledby='heading' + '#{letter_info.name}', data-parent='#accordion1')
+              div().col-sm-auto.top-buffer.no-gutter
+                div(style='width:100%', data-toggle='collapse', data-target='#collapse' + '#{letter_info.name}', aria-expanded='true', aria-controls='collapse'+ '#{letter_info.name}').card
+                  div(id='heading' + '#{letter_info.name}').card-body
+                    h6.card-title= letter
+                    ul.card-text
+                      if index == 1
+                        li 
+                          span #{letter} (#{letter_info.name}) is the #{index++}st letter of the alphabet
+                      else if index == 2
+                        li 
+                          span #{letter} (#{letter_info.name}) is the #{index++}nd letter of the alphabet
+                      else if index == 3
+                        li 
+                          span #{letter} (#{letter_info.name}) is the #{index++}rd letter of the alphabet
+                      else
+                        li 
+                          span #{letter} (#{letter_info.name}) is the #{index++}th letter of the alphabet
+
+                      if letter_info.final_form 
+                        li
+                          span 
+                            | When #{letter} is the last letter in a word it is written as 
+                            a(href="#") #{letter_info.final_form} 
+                            | instead.
+                      each point in letter_info.info
+                        li
+                          span #{point}
+
+
+
+    //- div().container
+    //-   #accordion1
+    //-     each row in [{'א':'Aleph', 'ב':'Bet', 'ג':'Gimmel', 'ד':'Daled', 'ה':'Hey'}, {'ו':'Vav', 'ז':'Zayin', 'ח':'Chet', 'ט':'Tet', 'י':'Yud'}, {'כ':'Kaf', 'ל':'Lamed', 'מ':'Mem', 'נ':'Nun', 'ס':'Samekh'}, {'ע':'Ayin', 'פ':'Pey', 'צ':'Tzadi', 'ק':'Kuf','ר':'Resh'}, {'ש':'Shin', 'ת':'Tav'}]
+    //-       div(dir="rtl").row.no-gutter.alephbet
+    //-         each name, letter in row
+    //-           div().col-sm-auto.right-buffer.top-buffer
+    //-             div(style='width:13rem', data-toggle='collapse', data-target='#collapse' + '#{name}', aria-expanded='true', aria-controls='collapse'+ '#{name}').card.text-center
+    //-               div(id='heading' + '#{name}').card-body
+    //-                 h3.card-title= letter
+    //-                 p.card-text (#{name})
+
+    //-       each name, letter in row
+    //-         .collapse(id='collapse' + '#{name}', aria-labelledby='heading' + '#{name}', data-parent='#accordion1')
+    //-           div().col-sm-auto.top-buffer.no-gutter
+    //-             div(style='width:100%', data-toggle='collapse', data-target='#collapse' + '#{name}', aria-expanded='true', aria-controls='collapse'+ '#{name}').card
+    //-               div(id='heading' + '#{name}').card-body
+    //-                 h6.card-title= letter
+    //-                 ul.card-text
+    //-                   li
+    //-                     span Gimmel is the 5th letter of the Hebrew alphabet
+    //-                   li 
+    //-                     span Makes G sound
+
+
+    div().container
+      div().row.alephbet.top-buffer
+        h2 Final Forms
+
+        #accordion2
+          //- div(dir='rtl').row.no-gutter.alephbet
+          //-   each name, letter in {'ך':'Kaf', 'ם':'Mem', 'ן':'Nun', 'ף':'Pey', 'ץ':'Tzadi'}
+          //-     div().col-sm-auto.right-buffer.top-buffer
+          //-       div(style='width:13rem', data-toggle='collapse', data-target='#collapseFinalForm' + '#{name}', aria-expanded='true', aria-controls='collapseFinalForm'+ '#{name}').card.text-center
+          //-         div(id='headingFinalForm' + '#{name}').card-body
+          //-           h3.card-title= letter
+          //-           p.card-text (#{name})
+
+          //- each name, letter in {'ך':'Kaf', 'ם':'Mem', 'ן':'Nun', 'ף':'Pey', 'ץ':'Tzadi'}
+          //-   .collapse(id='collapse' + '#{name}', aria-labelledby='heading' + '#{name}', data-parent='#accordion1')
+          //-     div().col-sm-auto.top-buffer.no-gutter
+          //-       div(style='width:100%', data-toggle='collapse', data-target='#collapse' + '#{name}', aria-expanded='true', aria-controls='collapse'+ '#{name}').card.text-center
+          //-         div(id='heading' + '#{name}').card-body
+          //-           h3.card-title= letter
+          //-           p.card-text (#{name})
+
+          - var final_form_letters = {'ך':{'name':'Kaf', 'standard_form':'כ' ,'info':[]}, 'ם':{'name':'Mem', 'standard_form':'מ','info':[]}, 'ן':{'name':'Nun', 'standard_form':'נ', 'info':[]}, 'ף':{'name':'Pey', 'standard_form':'פ', 'info':[]}, 'ץ':{'name':'Tzadi', 'standard_form':'צ', 'info':[]}}
+          div(dir="rtl").row.no-gutter.alephbet
+            each letter_info, letter in final_form_letters
+              div().col-sm-auto.right-buffer.top-buffer
+                div(style='width:13rem', data-toggle='collapse', data-target='#collapseFinalForm' + '#{letter_info.name}', aria-expanded='true', aria-controls='collapseFinalForm'+ '#{letter_info.name}').card.text-center
+                  div(id='headingFinalForm' + '#{letter_info.name}').card-body
+                    h3.card-title= letter
+                    p.card-text (#{letter_info.name})
+
+          each letter_info, letter in final_form_letters
+            .collapse(id='collapseFinalForm' + '#{letter_info.name}', aria-labelledby='headingFinalForm' + '#{letter_info.name}', data-parent='#accordion2')
+              div().col-sm-auto.top-buffer.no-gutter
+                div(style='width:100%', data-toggle='collapse', data-target='#collapseFinalForm' + '#{letter_info.name}', aria-expanded='true', aria-controls='collapseFinalForm'+ '#{letter_info.name}').card
+                  div(id='headingFinalForm' + '#{letter_info.name}').card-body
+                    h6.card-title= letter
+                    ul.card-text
+                      if letter_info.standard_form 
+                        li
+                          span 
+                            | When #{letter} is not the last letter in a word it is written as 
+                            a(href="#") #{letter_info.standard_form} 
+                            | instead.
+                      each point in letter_info.info
+                        li
+                          span #{point}
+
+
+      //- div(dir="rtl").row.alephbet.top-buffer
+      //-   each name, letter in {'א':'Aleph', 'ב':'Bet', 'ג':'Gimmel', 'ד':'Daled', 'ה':'Hey', 'ו':'Vav', 'ז':'Zayin', 'ח':'Chet', 'ט':'Tet', 'י':'Yud', 'כ':'Kaf', 'ל':'Lamed', 'מ':'Mem', 'נ':'Nun', 'ס':'Samekh', 'ע':'Ayin', 'פ':'Pey', 'צ':'Tzadi', 'ק':'Kuf','ר':'Resh', 'ש':'Shin', 'ת':'Tav'}
+      //-     div(style='width:13rem').card.text-center.right-buffer.bottom-buffer
+      //-       div().card-body
+      //-         h3.card-title= letter
+      //-         p.card-text (#{name})
+
+
+
+
+
+      //- .card
+      //-   #headingTwo.card-header
+      //-     h5.mb-0
+      //-       button.btn.btn-link.collapsed(data-toggle='collapse', data-target='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+      //-         | Collapsible Group Item #2
+      //-   #collapseTwo.collapse(aria-labelledby='headingTwo', data-parent='#accordion')
+      //-     .card-body
+      //-       | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      //- .card
+      //-   #headingThree.card-header
+      //-     h5.mb-0
+      //-       button.btn.btn-link.collapsed(data-toggle='collapse', data-target='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+      //-         | Collapsible Group Item #3
+      //-   #collapseThree.collapse(aria-labelledby='headingThree', data-parent='#accordion')
+      //-     .card-body
+      //-       | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+
+
+

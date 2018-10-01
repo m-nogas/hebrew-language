@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  body
+    div().container-fluid
+      div().row
+        div.col-sm-auto
+          a(href="/").home
+            h1 Hebrew.
+        div.col-sm-auto
+          div.row.menu
+            a(href="/alphabet")
+              h4 Alphabet
+          div.row
+            a(href="/dictionary")
+              h4 Dictionary.
+          div.row
+            a(href="/lessons")
+              h4 Lessons
+
+    center
+      div().col-8
+        div().input-group.input-group-lg.shadow-sm
+          input(type="text", placeholder="Search for a word or phrase", aria-label="Username", aria-describedby="basic-addon1").form-control
