@@ -29,7 +29,7 @@ block content
             a(align='right', href='#collapse#{letter_info.name}', onclick="$('body,html').animate({scrollTop: $('#heading#{letter_info.name}').offset().top}, 750 );", data-toggle="collapse",   data-parent="#accordion1").accordion-toggle.collapsed.smooth-scroll
               h5(align='right').small-right-buffer.small-left-buffer= letter 
             if letter_info.final_form
-              a(align='right', href='#collapseFinalForm#{letter_info.name}', onclick="location.href='#headingFinalForm#{letter_info.name}'", data-toggle="collapse", data-parent="#accordion2").accordion-toggle.collapsed.smooth-scroll
+              a(align='right', href='#collapseFinalForm#{letter_info.name}', onclick="$('body,html').animate({scrollTop: $('#headingFinalForm#{letter_info.name}').offset().top}, 750 );", data-toggle="collapse", data-parent="#accordion2").accordion-toggle.collapsed.smooth-scroll
                 h5(align='right').small-right-buffer.small-left-buffer= '(' + letter_info.final_form + ')'
 
     div().container
