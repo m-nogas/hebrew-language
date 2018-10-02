@@ -97,7 +97,7 @@ div .col-sm-auto .menu {
         margin-top:10px;
 }
 
-/*div .container .final-forms {
+/*div .container .final_forms {
     margin-bottom:20px;
 }*/
 
@@ -145,15 +145,15 @@ div .card-body{
     padding-right:0;
     padding-left:0;
 }
-
-/*div[class="row"] {
+/*
+div[class="row"] {
     outline: 1px solid rgba(0, 0, 0, 1);
 }
 div[class="row"] {
     outline: 1px solid rgba(0, 0, 0, 1);
-}*/
+}
 
-/*div[class="col-sm-auto"] {
+div[class="col-sm-3"] {
     outline: 1px solid rgba(0, 0, 0, 1);
 }*/
 
@@ -209,3 +209,98 @@ input[type=text] {
   background-color: DodgerBlue;
   color: #fff;
 }*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px Arial;  
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*div .row .list-item {
+  top: 100%;
+}*/
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+div .autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  font-family: "casloncpbold";
+  font-size: 20pt;
+  height: 100px;
+  /*padding: 10px;*/
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*div .hebrew-word {
+  font-family: "casloncpbold";
+  left-margin: 30px;
+}
+div .hebrew-column {
+  font-family: "casloncpbold";
+  margin-left: 38%;
+}
+
+div .transliteration-column {
+  font-family: "casloncpbold";
+  margin-left: 38%;
+}*/
+
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}

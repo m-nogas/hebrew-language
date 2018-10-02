@@ -21,7 +21,6 @@ block content
       //- ['א', 'ב', 'ג', 'ד', 'ה', 'ו(ן)', 'ז', 'ח', 'ט', 'י', 'כ(ך)', 'ל', 'מ(ם)', 'נ', 'ס', 'ע', 'פ(ף)', 'צ(ץ)', 'ק', 'ר', 'ש', 'ת']
       //- ['ת', 'ש', 'ר', 'ק', 'צ(ץ)', 'פ(ף)', 'ע', 'ס', 'נ', 'מ(ם)', 'ל', 'כ(ך)', 'י', 'ט', 'ח', 'ז', 'ו(ן)', 'ה', 'ד', 'ג', 'ב', 'א']
     - var letters = [{'א':{'name':'Aleph', 'info':["Alone א doesn't make a sound - it can be considered a 'dummy letter' used to insert consonant sounds in a word by adding Niqqud to it.", "Often א is used to spell a word but makes no sound. For example, א appears at the beginning of words that start with an [oh] sound (like בהוא), and at the end of "]}, 'ב':{'name':'Bet', 'info':[]}, 'ג':{'name':'Gimmel', 'info':[]}, 'ד':{'name':'Daled', 'info':[]}, 'ה':{'name':'Hey', 'info':[]}}, {'ו':{'name':'Vav', 'info':[]}, 'ז':{'name':'Zayin', 'info':[]}, 'ח':{'name':'Chet', 'info':[]}, 'ט':{'name':'Tet', 'info':[]}, 'י':{'name':'Yud', 'info':[]}}, {'כ':{'name':'Kaf', 'final_form':'ך', 'info':[]}, 'ל':{'name':'Lamed', 'info':[]}, 'מ':{'name':'Mem', 'final_form':'ם', 'info':[]}, 'נ':{'name':'Nun', 'final_form':'ן', 'info':[]}, 'ס':{'name':'Samekh', 'final_form':'', 'info':[]}}, {'ע':{'name':'Ayin', 'final_form':'', 'info':[]}, 'פ':{'name':'Pey', 'final_form':'ף', 'info':[]}, 'צ':{'name':'Tzadi', 'final_form':'ץ', 'info':[]}, 'ק':{'name':'Kuf', 'final_form':'', 'info':[]},'ר':{'name':'Resh', 'final_form':'', 'info':[]}}, {'ש':{'name':'Shin', 'final_form':'', 'info':[]}, 'ת':{'name':'Tav', 'final_form':'', 'info':[]}}]
-
     div().container
       div(dir="rtl").row.alephbet.top-buffer.small-right-buffer
         each row in letters
@@ -31,7 +30,6 @@ block content
             if letter_info.final_form
               a(align='right', href='#collapseFinalForm#{letter_info.name}', onclick="$('body,html').animate({scrollTop: $('#headingFinalForm#{letter_info.name}').offset().top}, 750 );", data-toggle="collapse", data-parent="#accordion2").accordion-toggle.collapsed.smooth-scroll
                 h5(align='right').small-right-buffer.small-left-buffer= '(' + letter_info.final_form + ')'
-
     div().container
       #accordion1
         - var index = 1
