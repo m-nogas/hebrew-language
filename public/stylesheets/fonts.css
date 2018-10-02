@@ -294,6 +294,20 @@ div .transliteration-column {
   margin-left: 38%;
 }*/
 
+.english-list-item {
+  margin-left:15px;
+  margin-top:10px;
+}
+
+.hebrew-list-item {
+  margin-right:0px;
+  margin-top:10px;
+}
+
+.transliteration-list-item {
+  margin-top:10px;
+}
+
 .autocomplete-items div:hover {
   /*when hovering an item:*/
   background-color: #e9e9e9; 

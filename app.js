@@ -8,10 +8,6 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-var LanguageDetect = require('languagedetect');
-var lngDetector = new LanguageDetect();
-console.log(lngDetector.detect('This is a test.'));
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

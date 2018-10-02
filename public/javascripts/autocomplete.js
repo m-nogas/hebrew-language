@@ -51,30 +51,35 @@ function autocomplete(inp, arr) {
       if (letter.substr(0, val.length).toUpperCase() == val.toUpperCase() || 
           eng.substr(0, val.length).toUpperCase() == val.toUpperCase() ||
           trans.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-        eng_col = document.createElement("col-sm-auto")
+        eng_col = document.createElement("col-sm-3")
         eng_col.classList.add("no-gutter")
         eng_col.classList.add("text-left")
+        eng_col.classList.add("english-list-item")
+
 
         // eng_col.classList.add("hebrew-column")
-        eng_col.style = "width:33%;"
+        eng_col.style = "width:32%;"
         // eng_col.attr("align", "left")
         eng_col.dir = "ltr"
-        trans_col = document.createElement("col-sm-auto")
+        trans_col = document.createElement("col-sm-3")
         trans_col.classList.add("no-gutter")
         trans_col.classList.add("text-center")
+        trans_col.classList.add("transliteration-list-item")
+
 
         // trans_col.classList.add("transliteration-column")
-        trans_col.style = "width:33%;"
+        trans_col.style = "width:32%;"
         // trans_col.attr("align", "center")
         trans_col.dir = "ltr"
-        heb_col = document.createElement("col-sm-auto")
+        heb_col = document.createElement("col-sm-3")
         heb_col.classList.add("no-gutter")
         heb_col.classList.add("text-right")
+        heb_col.classList.add("hebrew-list-item")
 
         // heb_col.classList.add("hebrew-column")
 
 
-        heb_col.style = "width:33%;"
+        heb_col.style = "width:32%;"
         // heb_col.attr("align", "right")
         heb_col.dir = "rtl"
 
