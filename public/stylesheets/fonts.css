@@ -48,6 +48,11 @@ p {
     font-size: 17pt;
 }
 
+h2 p .lessons {
+    font-family: "casloncpbold";
+    font-size: 20pt;
+}
+
 ul {
     font-family: "casloncpbold";
     font-size: 22pt;
