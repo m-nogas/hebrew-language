@@ -1,0 +1,35 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+li a {
+  display: block;
+  color: black;
+}
+
+/* li a:hover {
+  background-color: #555;
+  color: white;
+} */
+
+@media (max-width: @screen-xs) {
+  div a h1 {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: @screen-sm) {
+  div a h1 {
+    font-size: 14px;
+  }
+}
+
+div a h1 {
+  font-size: 3.4em;
+  color: black;
+  margin-top: 0px;
+  font-size: 65px;
+}
